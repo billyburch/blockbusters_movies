@@ -1,0 +1,8 @@
+<form action="/movies" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <h4>Enter a CLASSIC movie (Make it GOOD!):</h4>
+  <input type='text' name='title'/><br/><br/>
+  <h5>What is special about this movie?</h5>
+  <textarea name='description'></textarea><br/><br/>
+  <input type='submit'/>
+</form>
