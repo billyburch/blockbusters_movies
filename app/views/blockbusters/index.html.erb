@@ -1,0 +1,12 @@
+<h1>Blockbuster Stores</h1>
+
+<% @blockbusters.each do |blockbuster| %>
+  <h3><a href="/blockbusters/<%= blockbuster.id %>"><%= blockbuster.name %></a></h3>
+  <p><%= blockbuster.city %></p>
+  <a href="/blockbusters/<%= blockbuster.id  %>/edit">Edit</a>
+  <form action="/blockbusters/<%= blockbuster.id %>" method="POST">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <input type="hidden" name="_method" value="DELETE">
+    <input type="submit" value="delete"/>
+  </form>
+<% end %>

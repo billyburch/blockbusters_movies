@@ -9,7 +9,10 @@ class MoviesController < ApplicationController
   def create
     movie = Movie.new({
     title: params[:title],
-    description: params[:description]
+    description: params[:description],
+    genre: params[:genre],
+    release_year: params[:release_year],
+    restricted: params[:restricted],
     })
 
     movie.save
@@ -28,7 +31,10 @@ class MoviesController < ApplicationController
     movie = Movie.find(params[:id])
     movie.update({
       title: params[:title],
-      description: params[:description]
+      description: params[:description],
+      genre: params[:genre],
+      release_year: params[:release_year],
+      restricted: params[:restricted],
       })
     movie.save
     redirect_to "/movies/#{movie.id}"
