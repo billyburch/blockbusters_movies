@@ -1,7 +1,11 @@
 <h1>Blockbuster Stores</h1>
+<a href="/blockbusters">Blockbuster Store Index</a>
+<a href="/movies">Movie Index</a>
 
 <% @blockbusters.each do |blockbuster| %>
   <h3><a href="/blockbusters/<%= blockbuster.id %>"><%= blockbuster.name %></a></h3>
+  <p> Created: <%= blockbuster.created_at %> <p>
+
   <p><%= blockbuster.city %></p>
   <p><%= blockbuster.state %></p>
   <p><%= blockbuster.store_awards %></p>

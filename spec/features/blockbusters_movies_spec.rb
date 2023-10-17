@@ -117,4 +117,199 @@ RSpec.describe "Blockbusters Index", type: :feature do
       end
     end
   end
+
+  #Active Record
+
+  describe "User Story 6, blockbuster Index sorted by Most Recently Created" do
+    describe "As a visitor" do
+      describe "When I visit the blockbuster index," do
+        it "I see that records are ordered by most recently created first, and next to each of the records, I see when it was created" do
+          #Arrange/Given
+            #before(:each)
+
+          #Act/When
+          visit "/blockbusters/"
+          #Assert/Then
+          expect(@blockbuster1.name).to appear_before(@blockbuster2.name)
+          expect(@blockbuster2.name).to appear_before(@blockbuster3.name)
+          expect(page).to have_content(@blockbuster1.created_at)
+          expect(page).to have_content(@blockbuster2.created_at)
+          expect(page).to have_content(@blockbuster3.created_at)
+        end
+      end
+    end
+  end
+
+  describe "User Story 7, blockbuster movie Count" do
+    describe "As a visitor" do
+      describe "When I visit a blockbuster's show page" do
+        it "I see a count of the number of movies associated with this blockbuster" do
+          #Arrange/Given
+            #before(:each)
+          #Act/When
+          visit "blockbusters/#{@blockbuster1.id}"
+          #Assert/Then
+          expect(page).to have_content("Total Movies in Stock: #{@blockbuster1.movies.count}")
+        end
+      end
+    end
+  end
+
+  #Usability
+
+  describe "User Story 8, movie Index Link" do
+    describe "As a visitor" do
+      describe "When I visit any page on the site" do
+        it "Then I see a link at the top of the page that takes me to the movie Index" do
+          #Arrange/Given
+            #before(:each)     
+          #Act/When +
+          #Assert/Then
+          visit "/"
+
+          expect(page).to have_link("Movie Index")
+          click_link("Movie Index")
+          expect(current_path).to eq("/movies")
+
+          visit "/movies"
+
+          expect(page).to have_link("Movie Index")
+          click_link("Movie Index")
+          expect(current_path).to eq("/movies")
+
+          visit "/movies/#{@movie1.id}"
+          
+          expect(page).to have_link("Movie Index")
+          click_link("Movie Index")
+          expect(current_path).to eq("/movies")
+          
+          visit "/movies/#{@movie2.id}"
+
+          expect(page).to have_link("Movie Index")
+          click_link("Movie Index")
+          expect(current_path).to eq("/movies")
+
+          visit "/blockbusters"
+
+          expect(page).to have_link("Movie Index")
+          click_link("Movie Index")
+          expect(current_path).to eq("/movies")
+
+          visit "/blockbusters/#{@blockbuster1.id}"
+
+          expect(page).to have_link("Movie Index")
+          click_link("Movie Index")
+          expect(current_path).to eq("/movies")
+
+          visit "/blockbusters/#{@blockbuster2.id}"
+
+          expect(page).to have_link("Movie Index")
+          click_link("Movie Index")
+          expect(current_path).to eq("/movies")
+
+          visit "/blockbusters/#{@blockbuster3.id}" 
+
+          expect(page).to have_link("Movie Index")
+          click_link("Movie Index")
+          expect(current_path).to eq("/movies")
+        end
+      end
+    end
+  end
+
+  describe "User Story 9, blockbuster Index Link" do
+    describe "As a visitor" do
+      describe "When I visit any page on the site" do
+        it "Then I see a link at the top of the page that takes me to the blockbuster Index" do
+          #Arrange/Given
+            #before(:each)     
+          #Act/When +
+          #Assert/Then
+          visit "/"
+
+          expect(page).to have_link("Blockbuster Store Index")
+          click_link("Blockbuster Store Index")
+          expect(current_path).to eq("/blockbusters")
+
+          visit "/movies"
+
+          expect(page).to have_link("Blockbuster Store Index")
+          click_link("Blockbuster Store Index")
+          expect(current_path).to eq("/blockbusters")
+
+          visit "/movies/#{@movie1.id}"
+          
+          expect(page).to have_link("Blockbuster Store Index")
+          click_link("Blockbuster Store Index")
+          expect(current_path).to eq("/blockbusters")
+          
+          visit "/movies/#{@movie2.id}"
+
+          expect(page).to have_link("Blockbuster Store Index")
+          click_link("Blockbuster Store Index")
+          expect(current_path).to eq("/blockbusters")
+
+          visit "/blockbusters"
+
+          expect(page).to have_link("Blockbuster Store Index")
+          click_link("Blockbuster Store Index")
+          expect(current_path).to eq("/blockbusters")
+
+          visit "/blockbusters/#{@blockbuster1.id}"
+
+          expect(page).to have_link("Blockbuster Store Index")
+          click_link("Blockbuster Store Index")
+          expect(current_path).to eq("/blockbusters")
+
+          visit "/blockbusters/#{@blockbuster2.id}"
+
+          expect(page).to have_link("Blockbuster Store Index")
+          click_link("Blockbuster Store Index")
+          expect(current_path).to eq("/blockbusters")
+
+          visit "/blockbusters/#{@blockbuster3.id}" 
+
+          expect(page).to have_link("Blockbuster Store Index")
+          click_link("Blockbuster Store Index")
+          expect(current_path).to eq("/blockbusters")
+        end
+      end
+    end
+  end
+
+  describe "User Story 10, blockbuster movie Index Link" do
+    describe "As a visitor" do
+      describe "When I visit a blockbuster show page ('/blockbusters/:id')" do
+        it "Then I see a link to take me to that blockbuster's `movie_table_name` page ('/blockbusters/:id/movie_table_name')" do
+          #Arrange/Given
+            #before(:each)     
+          #Act/When +
+          visit "/blockbusters/#{@blockbuster1.id}"
+          #Assert/Then
+          expect(page).to have_link("Movie Index")
+          click_link("Movie Index")
+          expect(current_path).to eq("/movies")
+        end
+      end
+    end
+  end
+
+#The below is my attempt at returning JUST the store's movies - I don't think the above does so, and I'm out of time! 
+
+  # describe "User Story 10, blockbuster movie Index Link" do
+  #   describe "As a visitor" do
+  #     describe "When I visit a blockbuster show page ('/blockbusters/:id')" do
+  #       it "Then I see a link to take me to that blockbuster's `movie_table_name` page ('/blockbusters/:id/movie_table_name')" do
+  #         #Arrange/Given
+  #           #before(:each)     
+  #         #Act/When +
+  #         visit "/blockbusters/#{@blockbuster1.id}"
+  #         #Assert/Then
+  #         expect(page).to have_link("Movies at this Location")
+  #         click_link("Movies at this Location")
+  #         expect(current_path).to eq("/movies/#{@blockbuster1.id}")
+  #       end
+  #     end
+  #   end
+  # end
 end

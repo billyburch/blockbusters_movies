@@ -36,7 +36,7 @@ Then I see the movie with that id including the movie's attributes
 (data from each column that is on the movie table)
 
 [x] done
-User Story 5, blockbuster movieren Index 
+User Story 5, blockbuster movie Index 
 
 As a visitor
 When I visit '/blockbusters/:blockbuster_id/movie_table_name'
@@ -45,7 +45,7 @@ Then I see each movie that is associated with that blockbuster with each movie's
 
 ActiveRecord
 
-[ ] done
+[x] done
 User Story 6, blockbuster Index sorted by Most Recently Created 
 
 As a visitor
@@ -53,22 +53,22 @@ When I visit the blockbuster index,
 I see that records are ordered by most recently created first
 And next to each of the records I see when it was created
 
-[ ] done
+[x] done
 User Story 7, blockbuster movie Count
 
 As a visitor
 When I visit a blockbuster's show page
-I see a count of the number of movieren associated with this blockbuster
+I see a count of the number of movie associated with this blockbuster
 Usability
 
-[ ] done
+[x] done
 User Story 8, movie Index Link
 
 As a visitor
 When I visit any page on the site
 Then I see a link at the top of the page that takes me to the movie Index
 
-[ ] done
+[x] done
 User Story 9, blockbuster Index Link
 
 As a visitor

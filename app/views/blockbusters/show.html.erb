@@ -1,7 +1,11 @@
 <a href="/blockbusters">Blockbuster Store Index</a>
+<a href="/movies">Movie Index</a>
+
+<%# <a href="/movies/:id">Movies at this Location</a> %>
 
 <h1><%= @blockbuster.name %></h1>
 
+<p> Total Movies in Stock: <%= @blockbuster.movies.count%><p>
 <p><%= @blockbuster.city %></p>
 <p><%= @blockbuster.state %></p>
 <p><%= @blockbuster.store_awards %></p>
