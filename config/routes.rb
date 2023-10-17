@@ -20,4 +20,6 @@ Rails.application.routes.draw do
   get "/blockbusters/:id/edit", to: "blockbusters#edit"
   patch '/blockbusters/:id', to: 'blockbusters#update'
   delete '/blockbusters/:id', to: 'blockbusters#destroy'
+
+  get "/blockbusters/:id/movies", to: 'movies#index', as: :blockbuster_movies
 end

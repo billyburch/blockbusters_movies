@@ -3,6 +3,9 @@
 <% @movies.each do |movie| %>
   <h3><a href="/movies/<%= movie.id %>"><%= movie.title %></a></h3>
   <p><%= movie.description %></p>
+  <p><%= movie.genre %></p>
+  <p><%= movie.release_year %></p>
+  <p><%= movie.restricted %></p>
   <a href="/movies/<%= movie.id  %>/edit">Edit</a>
   <form action="/movies/<%= movie.id %>" method="POST">
     <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">

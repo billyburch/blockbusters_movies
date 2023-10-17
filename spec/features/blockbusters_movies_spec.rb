@@ -60,15 +60,15 @@ RSpec.describe "Blockbusters Index", type: :feature do
           #Assert/Then
           expect(page).to have_content(@movie1.title)
           expect(page).to have_content(@movie1.description)
-          # expect(page).to have_content(@movie1.genre)
-          # expect(page).to have_content(@movie1.release_year)
-          # expect(page).to have_content(@movie1.restricted)
+          expect(page).to have_content(@movie1.genre)
+          expect(page).to have_content(@movie1.release_year)
+          expect(page).to have_content(@movie1.restricted)
 
           expect(page).to have_content(@movie2.title)
           expect(page).to have_content(@movie2.description)
-          # expect(page).to have_content(@movie2.genre)
-          # expect(page).to have_content(@movie2.release_year)
-          # expect(page).to have_content(@movie2.restricted)
+          expect(page).to have_content(@movie2.genre)
+          expect(page).to have_content(@movie2.release_year)
+          expect(page).to have_content(@movie2.restricted)
         end
       end
     end
@@ -87,10 +87,34 @@ RSpec.describe "Blockbusters Index", type: :feature do
           expect(page).to have_content(@movie1.description)
           expect(page).to have_content(@movie1.genre)
           expect(page).to have_content(@movie1.release_year)
-          expect(page).to have_content(@movie1.restricted)        
+          expect(page).to have_content(@movie1.restricted)      
         end
       end
     end
   end
- 
+
+  describe "User Story 5, Blockbuster Movie Index" do
+    describe "As a visitor" do
+      describe "When I visit '/blockbusters/:blockbuster_id/movies'" do
+        it "Then I see each movie that is associated with that blockbuster with each movie's attributes" do
+          #Arrange/Given
+            #before(:each)
+          #Act/When
+          visit "/blockbusters/#{@blockbuster1.id}/movies"
+          #Assert/Then
+          expect(page).to have_content(@movie1.title)
+          expect(page).to have_content(@movie1.description)
+          expect(page).to have_content(@movie1.genre)
+          expect(page).to have_content(@movie1.release_year)
+          expect(page).to have_content(@movie1.restricted)
+
+          expect(page).to have_content(@movie2.title)
+          expect(page).to have_content(@movie2.description)
+          expect(page).to have_content(@movie2.genre)
+          expect(page).to have_content(@movie2.release_year)
+          expect(page).to have_content(@movie2.restricted)        
+        end
+      end
+    end
+  end
 end

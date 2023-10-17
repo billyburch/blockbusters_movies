@@ -27,7 +27,7 @@ When I visit '/movie_table_name'
 Then I see each movie in the system including the movie's attributes
 (data from each column that is on the movie table)
 
-[ ] done
+[x] done
 User Story 4, movie Show 
 
 As a visitor
@@ -35,7 +35,7 @@ When I visit '/movie_table_name/:id'
 Then I see the movie with that id including the movie's attributes
 (data from each column that is on the movie table)
 
-[ ] done
+[x] done
 User Story 5, blockbuster movieren Index 
 
 As a visitor
